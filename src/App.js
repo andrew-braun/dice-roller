@@ -12,12 +12,16 @@ class App extends Component {
 
 	state = {
 		dieOne: 1,
+		dieTwo: 1,
+	}
+
+	rollDice(sides) {
+		const roll = Math.floor(Math.random() * sides) + 1
+		return roll
 	}
 
 	handleRoll() {
-		const roll = Math.floor(Math.random() * 6) + 1
-		this.setState({ dieOne: roll })
-		console.log(roll)
+		this.setState({ dieOne: this.rollDice(6), dieTwo: this.rollDice(6) })
 	}
 
 	render() {
@@ -25,6 +29,7 @@ class App extends Component {
 			<Layout>
 				<div className="App">
 					<Die number={this.state.dieOne} />
+					<Die number={this.state.dieTwo} />
 					<Button onClick={this.handleRoll} />
 				</div>
 			</Layout>
