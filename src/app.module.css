@@ -1,0 +1,10 @@
+.app {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.diceContainer {
+	display: flex;
+	justify-content: center;
+}

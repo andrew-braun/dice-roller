@@ -2,7 +2,7 @@ import React, { Component } from "react"
 import Layout from "./components/Layout/Layout"
 import Die from "./components/Die/Die"
 import Button from "./components/Button/Button"
-import "./App.css"
+import styles from "./app.module.css"
 
 class App extends Component {
 	constructor(props) {
@@ -13,6 +13,7 @@ class App extends Component {
 	state = {
 		dieOne: 1,
 		dieTwo: 1,
+		rollHistory: [],
 	}
 
 	rollDice(sides) {
@@ -21,16 +22,26 @@ class App extends Component {
 	}
 
 	handleRoll() {
-		this.setState({ dieOne: this.rollDice(6), dieTwo: this.rollDice(6) })
+		const rollOne = this.rollDice(6)
+		const rollTwo = this.rollDice(6)
+
+		this.setState({
+			dieOne: rollOne,
+			dieTwo: rollTwo,
+			rollHistory: [...this.state.rollHistory, rollOne, rollTwo],
+		})
 	}
 
 	render() {
 		return (
 			<Layout>
-				<div className="App">
-					<Die number={this.state.dieOne} />
-					<Die number={this.state.dieTwo} />
+				<div className={styles.app}>
+					<div className={styles.diceContainer}>
+						<Die number={this.state.dieOne} />
+						<Die number={this.state.dieTwo} />
+					</div>
 					<Button onClick={this.handleRoll} />
+					{/* {this.state.rollHistory.join(",")} */}
 				</div>
 			</Layout>
 		)
