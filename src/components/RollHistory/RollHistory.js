@@ -4,10 +4,16 @@ import styles from "./roll-history.module.css"
 class RollHistory extends Component {
 	render() {
 		const rolls = this.props.rolls.map((roll) => (
-			<li>
-				<span>{roll.join(" ")}</span>
-				&nbsp;
-				<span>{roll.reduce((die, acc) => acc + die)}</span>
+			<li className={styles.rollItem}>
+				<span>
+					{roll.map((die) => (
+						<span className={styles.rollItemDie}>{die}</span>
+					))}
+				</span>
+				<span className={styles.diceSum}>
+					{" "}
+					= {roll.reduce((die, acc) => acc + die)}
+				</span>
 			</li>
 		))
 		return (
