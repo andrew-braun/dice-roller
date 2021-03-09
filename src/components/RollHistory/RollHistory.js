@@ -11,7 +11,6 @@ class RollHistory extends Component {
 					))}
 				</span>
 				<span className={styles.diceSum}>
-					{" "}
 					= {roll.reduce((die, acc) => acc + die)}
 				</span>
 			</li>

@@ -2,9 +2,8 @@
 	position: relative;
 	display: flex;
 	flex-direction: column;
-	min-width: 15rem;
-	min-height: 20rem;
-	max-height: 20rem;
+	min-width: 25rem;
+	height: 42rem;
 	background: hsla(0, 0%, 0%, 0.5);
 	color: white;
 	margin: 1rem;
@@ -20,7 +19,9 @@
 	flex: 1 1 auto;
 	display: flex;
 	flex-direction: column;
+	justify-content: flex-start;
 	width: 100%;
+	height: 100%;
 	padding: 0 0.5rem;
 	margin: 0;
 	list-style: none;
@@ -28,8 +29,7 @@
 }
 
 .rollItem {
-	flex: 1 1 auto;
-	justify-content: space-between;
+	justify-content: space-around;
 	display: flex;
 	width: 100%;
 	margin: 0.4rem 0;
@@ -45,6 +45,6 @@
 	text-align: center;
 }
 
-.styles.diceSum {
-	justify-self: flex-end;
+.diceSum {
+	font-size: 2rem;
 }

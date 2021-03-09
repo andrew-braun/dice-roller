@@ -12,9 +12,10 @@ class App extends Component {
 	}
 
 	state = {
-		dieOne: 1,
-		dieTwo: 1,
+		numberOfDice: 2,
+		diceValues: [1, 1],
 		rollHistory: [],
+		currentDice: [],
 	}
 
 	rollDice(sides) {
@@ -22,15 +23,31 @@ class App extends Component {
 		return roll
 	}
 
+	generateDice() {
+		const currentDice = this.state.diceValues.map((die, index) => (
+			<Die number={die} key={`die-${this.state.rollHistory.length + index}`} />
+		))
+
+		this.setState({ currentDice: currentDice })
+	}
+
 	handleRoll() {
 		const rollOne = this.rollDice(6)
 		const rollTwo = this.rollDice(6)
 
-		this.setState({
-			dieOne: rollOne,
-			dieTwo: rollTwo,
-			rollHistory: [...this.state.rollHistory, [rollOne, rollTwo]],
-		})
+		this.setState(
+			{
+				diceValues: [rollOne, rollTwo],
+				rollHistory: [...this.state.rollHistory, [rollOne, rollTwo]],
+			},
+			() => {
+				this.generateDice()
+			}
+		)
+	}
+
+	componentDidMount() {
+		this.generateDice()
 	}
 
 	render() {
@@ -38,14 +55,12 @@ class App extends Component {
 			<Layout>
 				<div className={styles.app}>
 					<div className={styles.rollContainer}>
-						<div className={styles.diceContainer}>
-							<Die number={this.state.dieOne} />
-							<Die number={this.state.dieTwo} />
-						</div>
+						<div className={styles.diceContainer}>{this.state.currentDice}</div>
 						<Button onClick={this.handleRoll} />
 					</div>
-					<RollHistory rolls={this.state.rollHistory} />
-					{/* {this.state.rollHistory.join(",")} */}
+					<div className={styles.rollHistoryContainer}>
+						<RollHistory rolls={this.state.rollHistory} />
+					</div>
 				</div>
 			</Layout>
 		)

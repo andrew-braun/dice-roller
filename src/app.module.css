@@ -2,10 +2,21 @@
 	position: relative;
 	display: flex;
 	align-items: center;
-	justify-content: center;
+
+	width: 100%;
+	height: 100%;
+}
+
+.rollContainer {
+	flex: 1 1 75%;
+	text-align: center;
 }
 
 .diceContainer {
 	display: flex;
 	justify-content: center;
+}
+
+.rollHistoryContainer {
+	flex: 1 1 25%;
 }
