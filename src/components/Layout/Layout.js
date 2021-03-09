@@ -4,7 +4,7 @@ import styles from "./layout.module.css"
 class Layout extends Component {
 	render() {
 		return (
-			<React.Fragment>
+			<div className={styles.layout}>
 				<header className={styles.header}>
 					<h1>Dice Roller</h1>
 				</header>
@@ -16,7 +16,7 @@ class Layout extends Component {
 					</span>
 					by Andrew Braun
 				</footer>
-			</React.Fragment>
+			</div>
 		)
 	}
 }

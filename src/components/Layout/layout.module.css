@@ -1,11 +1,22 @@
+.layout {
+	display: flex;
+	flex-direction: column;
+	min-height: 100vh;
+}
+
 .header {
 	text-align: center;
 }
 
+.main {
+	flex: 1 1 auto;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
 .footer {
-	position: absolute;
-	bottom: 0;
-	left: 0;
+	justify-self: flex-end;
 	width: 100%;
 	padding: 1rem;
 	text-align: center;

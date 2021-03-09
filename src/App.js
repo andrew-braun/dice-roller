@@ -37,11 +37,13 @@ class App extends Component {
 		return (
 			<Layout>
 				<div className={styles.app}>
-					<div className={styles.diceContainer}>
-						<Die number={this.state.dieOne} />
-						<Die number={this.state.dieTwo} />
+					<div className={styles.rollContainer}>
+						<div className={styles.diceContainer}>
+							<Die number={this.state.dieOne} />
+							<Die number={this.state.dieTwo} />
+						</div>
+						<Button onClick={this.handleRoll} />
 					</div>
-					<Button onClick={this.handleRoll} />
 					<RollHistory rolls={this.state.rollHistory} />
 					{/* {this.state.rollHistory.join(",")} */}
 				</div>

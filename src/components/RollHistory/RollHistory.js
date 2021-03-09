@@ -12,6 +12,7 @@ class RollHistory extends Component {
 		))
 		return (
 			<div className={styles.rollHistoryContainer}>
+				<h3 className={styles.rollHistoryHeader}>Roll History</h3>
 				<ul className={styles.rollsList}>{rolls}</ul>
 			</div>
 		)
