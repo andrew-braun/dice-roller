@@ -2,6 +2,7 @@ import React, { Component } from "react"
 import Layout from "./components/Layout/Layout"
 import Die from "./components/Die/Die"
 import Button from "./components/Button/Button"
+import RollHistory from "./components/RollHistory/RollHistory"
 import styles from "./app.module.css"
 
 class App extends Component {
@@ -41,6 +42,7 @@ class App extends Component {
 						<Die number={this.state.dieTwo} />
 					</div>
 					<Button onClick={this.handleRoll} />
+					<RollHistory rolls={this.state.rollHistory} />
 					{/* {this.state.rollHistory.join(",")} */}
 				</div>
 			</Layout>
