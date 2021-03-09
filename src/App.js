@@ -29,7 +29,7 @@ class App extends Component {
 		this.setState({
 			dieOne: rollOne,
 			dieTwo: rollTwo,
-			rollHistory: [...this.state.rollHistory, rollOne, rollTwo],
+			rollHistory: [...this.state.rollHistory, [rollOne, rollTwo]],
 		})
 	}
 
