@@ -9,12 +9,17 @@
 
 .rollContainer {
 	flex: 1 1 75%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
 	text-align: center;
 }
 
 .diceContainer {
 	display: flex;
 	justify-content: center;
+	flex-wrap: wrap;
+	max-width: 75rem;
 }
 
 .rollHistoryContainer {
