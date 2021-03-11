@@ -5,7 +5,7 @@ class Button extends Component {
 	render() {
 		return (
 			<button className={styles.button} onClick={this.props.onClick}>
-				Roll!
+				{this.props.text}
 			</button>
 		)
 	}
