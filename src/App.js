@@ -10,6 +10,7 @@ class App extends Component {
 		super(props)
 		this.handleRoll = this.handleRoll.bind(this)
 		this.handleAddDie = this.handleAddDie.bind(this)
+		this.handleDeleteDie = this.handleDeleteDie.bind(this)
 	}
 
 	state = {
@@ -25,28 +26,36 @@ class App extends Component {
 
 	generateDice() {
 		const currentDice = this.state.diceValues.map((die, index) => (
-			<Die number={die} key={`die-${this.state.rollHistory.length + index}`} />
+			<Die
+				number={die}
+				onClick={this.handleDeleteDie}
+				key={`die-${this.state.rollHistory.length + index}`}
+			/>
 		))
 
 		this.setState({ currentDice: currentDice })
 	}
 
 	handleRoll() {
-		let newDiceValues = []
+		try {
+			let newDiceValues = []
 
-		for (let i = 0; i < this.state.diceValues.length; i++) {
-			newDiceValues.push(this.rollDice(6))
-		}
-
-		this.setState(
-			{
-				diceValues: newDiceValues,
-				rollHistory: [...this.state.rollHistory, newDiceValues],
-			},
-			() => {
-				this.generateDice()
+			for (let i = 0; i < this.state.diceValues.length; i++) {
+				newDiceValues.push(this.rollDice(6))
 			}
-		)
+
+			this.setState(
+				{
+					diceValues: newDiceValues,
+					rollHistory: [...this.state.rollHistory, newDiceValues],
+				},
+				() => {
+					this.generateDice()
+				}
+			)
+		} catch (error) {
+			console.log(error)
+		}
 	}
 
 	componentDidMount() {
@@ -56,8 +65,25 @@ class App extends Component {
 	handleAddDie() {
 		this.setState(
 			{
-				numberOfDice: this.state.numberOfDice + 1,
 				diceValues: [...this.state.diceValues, 1],
+			},
+			() => {
+				this.generateDice()
+			}
+		)
+	}
+
+	handleDeleteDie() {
+		const valuesLength = this.state.diceValues.length
+
+		const deletedArray =
+			valuesLength > 1
+				? this.state.diceValues.slice(0, this.state.diceValues.length - 1)
+				: this.state.diceValues
+
+		this.setState(
+			{
+				diceValues: deletedArray,
 			},
 			() => {
 				this.generateDice()

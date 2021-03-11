@@ -18,7 +18,11 @@ class Die extends Component {
 			FontAwesome[`FaDice${numLookup[this.props.number]}`]
 		)
 
-		return <div className={styles.die}>{die}</div>
+		return (
+			<button className={styles.die} onClick={this.props.onClick}>
+				{die}
+			</button>
+		)
 	}
 }
 
