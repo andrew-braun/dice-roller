@@ -32,13 +32,16 @@ class App extends Component {
 	}
 
 	handleRoll() {
-		const rollOne = this.rollDice(6)
-		const rollTwo = this.rollDice(6)
+		let newDiceValues = []
+
+		for (let i = 0; i < this.state.numberOfDice; i++) {
+			newDiceValues.push(this.rollDice(6))
+		}
 
 		this.setState(
 			{
-				diceValues: [rollOne, rollTwo],
-				rollHistory: [...this.state.rollHistory, [rollOne, rollTwo]],
+				diceValues: newDiceValues,
+				rollHistory: [...this.state.rollHistory, newDiceValues],
 			},
 			() => {
 				this.generateDice()
