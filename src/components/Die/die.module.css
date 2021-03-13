@@ -1,5 +1,6 @@
-.die {
+.dieButton {
 	font-size: 8rem;
 	border: 0;
 	background: none;
+	color: var(--color-5);
 }

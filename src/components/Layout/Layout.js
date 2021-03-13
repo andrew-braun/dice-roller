@@ -6,7 +6,7 @@ class Layout extends Component {
 		return (
 			<div className={styles.layout}>
 				<header className={styles.header}>
-					<h1>Dice Roller</h1>
+					<h1>Let's Roll!</h1>
 				</header>
 				<main className={styles.main}>{this.props.children}</main>
 				<footer className={styles.footer}>

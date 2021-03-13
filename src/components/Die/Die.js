@@ -19,7 +19,7 @@ class Die extends Component {
 		)
 
 		return (
-			<button className={styles.die} onClick={this.props.onClick}>
+			<button className={styles.dieButton} onClick={this.props.onClick}>
 				{die}
 			</button>
 		)

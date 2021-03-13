@@ -1,8 +1,7 @@
 .app {
 	position: relative;
 	display: flex;
-	align-items: center;
-
+	align-items: stretch;
 	width: 100%;
 	height: 100%;
 }
@@ -12,16 +11,21 @@
 	display: flex;
 	flex-direction: column;
 	align-items: center;
+	justify-content: center;
 	text-align: center;
+	background: var(--color-4);
 }
 
 .diceContainer {
 	display: flex;
 	justify-content: center;
+	align-items: center;
 	flex-wrap: wrap;
 	max-width: 75rem;
 }
 
 .rollHistoryContainer {
 	flex: 1 1 25%;
+	height: 100%;
+	align-self: stretch;
 }
