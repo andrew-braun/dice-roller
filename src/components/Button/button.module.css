@@ -5,6 +5,7 @@
 	border: 0;
 	border-radius: 0.3rem;
 	background: hsla(0, 0%, 0%, 0.8);
+	font-size: 2rem;
 	color: white;
 	transition-duration: 0.3s;
 	transition-timing-function: ease-in-out;
@@ -12,6 +13,6 @@
 
 .button:hover {
 	cursor: pointer;
-	opacity: 0.8;
 	transform: scaleX(0.97);
+	background: var(--color-6);
 }

@@ -5,13 +5,13 @@ class RollHistory extends Component {
 	render() {
 		const rolls = this.props.rolls.map((roll) => (
 			<li className={styles.rollItem}>
-				<span>
+				<span className={styles.rollItemDieContainer}>
 					{roll.map((die) => (
 						<span className={styles.rollItemDie}>{die}</span>
 					))}
 				</span>
 				<span className={styles.diceSum}>
-					= {roll.reduce((die, acc) => acc + die)}
+					{roll.reduce((die, acc) => acc + die)}
 				</span>
 			</li>
 		))

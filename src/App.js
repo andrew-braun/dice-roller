@@ -96,8 +96,10 @@ class App extends Component {
 				<div className={styles.app}>
 					<div className={styles.rollContainer}>
 						<div className={styles.diceContainer}>{this.state.currentDice}</div>
-						<Button onClick={this.handleRoll} text="Roll!" />
-						<Button onClick={this.handleAddDie} text="Add Die" />
+						<div className={styles.buttonContainer}>
+							<Button onClick={this.handleRoll} text="Roll!" />
+							<Button onClick={this.handleAddDie} text="Add Die" />
+						</div>
 					</div>
 					<div className={styles.rollHistoryContainer}>
 						<RollHistory rolls={this.state.rollHistory} />
