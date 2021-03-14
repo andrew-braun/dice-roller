@@ -16,3 +16,16 @@
 	transform: scaleX(0.97);
 	background: var(--color-6);
 }
+
+.rollButton {
+	background: white;
+	color: black;
+	font-weight: 600;
+}
+.deleteButton {
+	background: var(--color-5);
+}
+
+.addButton {
+	background: var(--color-6);
+}

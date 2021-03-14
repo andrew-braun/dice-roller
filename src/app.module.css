@@ -34,8 +34,23 @@
 }
 
 .buttonContainer {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	grid-template-rows: 1fr 1fr;
 	position: absolute;
 	bottom: 0;
+}
+
+.buttonContainer button:first-child {
+	grid-column: span 2;
+	grid-row: 1;
+	text-align: center;
+	margin: auto;
+	width: 80%;
+}
+
+.buttonContainer button:not(:first-child) {
+	grid-row: 2;
 }
 
 .rollHistoryContainer {

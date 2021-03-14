@@ -3,8 +3,9 @@ import styles from "./button.module.css"
 
 class Button extends Component {
 	render() {
+		const classNames = `${styles.button} ${styles[this.props.class] ?? ""}`
 		return (
-			<button className={styles.button} onClick={this.props.onClick}>
+			<button className={classNames} onClick={this.props.onClick}>
 				{this.props.text}
 			</button>
 		)
